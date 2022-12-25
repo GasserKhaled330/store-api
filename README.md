@@ -10,7 +10,7 @@ A detailed list of the endpoints and actions available can be found in the [REQU
 ### Database config ###
 
 The API connects to a postgres database. As a first step, it is necessary to create two databases (development and test) on your local machine. 
-Run the command `psql -U YOUR_DB_USER postgres` in terminal to open the postgres CLI. Then run the following:
+Run the command `psql postgres` in terminal to open the postgres CLI. Then run the following:
 
 ```SQL
 CREATE USER store_user WITH PASSWORD 'YOUR_PASSWORD_HERE';
@@ -28,14 +28,14 @@ To make sure the API can connect to the db it is necessary to create a `database
 {
   "dev": {
     "driver": "pg",
-    "host": "YOUR_DB_HOST",
+    "host": "127.0.0.1",
     "database": "online_store_api",
     "user": "store_user",
     "password": "YOUR_PASSWORD_HERE"
   },
   "test": {
     "driver": "pg",
-    "host": "YOUR_DB_HOST",
+    "host": "127.0.0.1",
     "database": "online_store_api_test",
     "user": "store_user",
     "password": "YOUR_PASSWORD_HERE"
@@ -51,13 +51,13 @@ so it is only necessary to create a `.env` file with the following variables:
 
 | Name              |         Value         |                                                                       Notes                                                                       |
 |-------------------|:---------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------:|
-| POSTGRES_HOST     |    "YOUR_DB_HOST"     |                                                      Same value as in the database.json file                                                      |
+| POSTGRES_HOST     |      "127.0.0.1"      |                                                      Same value as in the database.json file                                                      |
 | POSTGRES_DB       |   online_store_api    |                                                      Same value as in the database.json file                                                      |   
 | POSTGRES_TEST_DB  | online_store_api_test |                                                      Same value as in the database.json file                                                      |
 | POSTGRES_USER     |      store_user       |                                                      Same value as in the database.json file                                                      |
 | POSTGRES_PASSWORD |     YOUR_PASSWORD     |                                                      Same value as in the database.json file                                                      |
 | ENV               |          dev          |                           Used to set the DB environment. The test script automatically sets it to 'test' when running.                           |
-| PORT              |       YOUR_PORT       |         The API will run on http://localhost:3000 by default, but there is the option to select a custom port as an environment variable          |
+| PORT              |         8000          |         The API will run on http://localhost:3000 by default, but there is the option to select a custom port as an environment variable          |
 | SALT_ROUNDS       |          10           |                              Number of salt rounds the password hashing function of the bcrypt package will be using                              |
 | PEPPER            |   YOUR_STRING_HERE    |                   A string of your choice that bcrypt will be adding prior to hashing passwords for an extra layer of security                    |
 | TOKEN_SECRET      |   YOUR_STRING_HERE    | A string that will be used by jwt to generate authentication tokens. The more complex the better, it should be made of random characters ideally. |
@@ -123,6 +123,32 @@ The code can ba automatically linted using Elint. Note that Elint will also use 
 ```
 npm run lint
 ```
+
+### Product End points ###
+```
+GET /products
+GET /products/:id
+POST /products 
+DELETE /products/:id 
+GET /products/:category   
+```
+### authenticate E points ###
+```
+POST /register
+POST /login
+```
+### User End points ###
+
+#### all of this End points need to be authenticated
+```
+GET /users
+GET /users/:id
+POST /users
+GET /users/:id/current-order
+```
+
+NOTE: All database tables with its columns name exist in migration folder 
+#### migration/sqls 
 
 ## Required Technologies
 Your application must make use of the following libraries:
