@@ -1,0 +1,17 @@
+{
+  "dev": {
+    "driver": "pg",
+    "host": "127.0.0.1",
+    "database": "online_store_api",
+    "user": "store_user",
+    "password": "fm1234"
+  },
+  "test": {
+    "driver": "pg",
+    "host": "127.0.0.1",
+    "database": "online_store_api_test",
+    "user": "store_user",
+    "password": "fm1234"
+  },
+  "sql-file" : true
+}
