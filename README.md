@@ -3,7 +3,7 @@
 ## Introduction ##
 
 This is a REST API simulating an e-commerce backend based on three models: Products, Orders and Users. 
-A detailed list of the endpoints and actions available can be found in the [REQUIREMENTS.md](https://github.com/fedeval/storefront-backend-api/blob/main/REQUIREMENTS.md) file.
+A detailed list of the endpoints and actions available can be found in the [REQUIREMENTS.md](https://github.com/GasserKhaled330/store-api/blob/main/REQUIREMENTS.md) file.
 
 ## Setup ##
 
@@ -124,31 +124,10 @@ The code can ba automatically linted using Elint. Note that Elint will also use 
 npm run lint
 ```
 
-### Product End points ###
-```
-GET /products
-GET /products/:id
-POST /products 
-DELETE /products/:id 
-GET /products/:category   
-```
-### authenticate E points ###
-```
-POST /register
-POST /login
-```
-### User End points ###
+---
+## How to use ##
 
-#### all of this End points need to be authenticated
-```
-GET /users
-GET /users/:id
-POST /users
-GET /users/:id/current-order
-```
-
-NOTE: All database tables with its columns name exist in migration folder 
-#### migration/sqls 
+The API offers several endpoints to access and manipulate data in the database through both CRUD and custom actions. The details of what is required to successfully send requests to each endpoint, data shapes and db schema can be found in the [REQUIREMENTS.md](https://github.com/GasserKhaled330/store-api/blob/main/REQUIREMENTS.md) file.
 
 ## Required Technologies
 Your application must make use of the following libraries:
