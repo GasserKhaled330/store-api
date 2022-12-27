@@ -35,12 +35,12 @@ GET /users/:id/current-order
 - price
 - category
 
-| Column       | Type               |
-|------------- |:------------------:|
-| id           | SERIAL PRIMARY KEY |
-| name         | VARCHAR(50)        |
-| price        | INTEGER            |
-| category     | VARCHAR(50)        |
+| Column   |        Type        |
+|----------|:------------------:|
+| id       | SERIAL PRIMARY KEY |
+| name     |    VARCHAR(50)     |
+| price    |      INTEGER       |
+| category |    VARCHAR(50)     |
 
 #### User
 - id
@@ -53,9 +53,9 @@ GET /users/:id/current-order
 |------------|:------------------------:|
 | id         |    SERIAL PRIMARY KEY    |
 | email      | VARCHAR  UNIQUE NOT NULL |
-| first_name |         VARCHAR(50)      |
-| last_name  |         VARCHAR(50)      |
-| password   |    VARCHAR(20)  NOT NULL |
+| first_name |       VARCHAR(50)        |
+| last_name  |       VARCHAR(50)        |
+| password   |  VARCHAR(20)  NOT NULL   |
 
 #### Orders
 - id
@@ -73,7 +73,7 @@ GET /users/:id/current-order
 - order_id
 - quantity of each product in the order
 
-| Column     |             Type                |
+| Column     | Type                            |
 |------------|:--------------------------------|
 | order_id   | INTEGER REFERENCES orders(id)   |
 | product_id | INTEGER REFERENCES products(id) |
