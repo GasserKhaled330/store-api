@@ -25,18 +25,49 @@ These are the notes from a meeting with the frontend developer that describe wha
 -  id
 - name
 - price
-- [OPTIONAL] category
+- category
+
+| Column       | Type               |
+|------------- |:------------------:|
+| id           | SERIAL PRIMARY KEY |
+| name         | VARCHAR(50)        |
+| price        | INTEGER            |
+| category     | VARCHAR(50)        |
 
 #### User
 - id
+- email
 - firstName
 - lastName
 - password
 
+| Column     |           Type           |
+|------------|:------------------------:|
+| id         |    SERIAL PRIMARY KEY    |
+| email      | VARCHAR  UNIQUE NOT NULL |
+| first_name |         VARCHAR(50)      |
+| last_name  |         VARCHAR(50)      |
+| password   |    VARCHAR(20)  NOT NULL |
+
 #### Orders
 - id
-- id of each product in the order
-- quantity of each product in the order
 - user_id
 - status of order (active or complete)
+
+| Column  |               Type               |
+|---------|:--------------------------------:|
+| id      |        SERIAL PRIMARY KEY        |
+| status  |           VARCHAR(10)            |
+| user_id |   INTEGER REFERENCES users(id)   |
+
+#### order_details
+- product_id
+- order_id
+- quantity of each product in the order
+
+| Column     |             Type                |
+|------------|:--------------------------------|
+| order_id   | INTEGER REFERENCES orders(id)   |
+| product_id | INTEGER REFERENCES products(id) |
+| quantity   | INTEGER                         |
 
